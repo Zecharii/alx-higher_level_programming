@@ -12,16 +12,16 @@ if __name__ == "__main__":
 
     try:
         data['q'] = sys.argv[1]
-    except:
+    except IndexError:
         pass
 
     response = requests.post('http://0.0.0.0:5000/search_user', data)
 
     try:
         json_response = response.json()
-        if not json_response:
+        if not json_r:
             print("No result")
         else:
-            print("[{}] {}".format(json_response.get('id'), json_response.get('name')))
-    except:
+            print("[{}] {}".format(json_r.get('id'), json_r.get('name')))
+    except ValueError:
         print("Not a valid JSON")
