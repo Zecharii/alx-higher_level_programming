@@ -12,10 +12,10 @@ if __name__ == "__main__":
         repo = sys.argv[1]
         owner = sys.argv[2]
         url = 'https://api.github.com/repos/{}/{}/commits'.format(owner, repo)
-        response = get(url)
-        json_r = r.json()
+        r = get(url)
+        json_o = r.json()
         for i in range(0, 10):
-            print("{}: {}".format(json_r[i].get('sha'), json_r[i].get('commit')
+            print("{}: {}".format(json_o[i].get('sha'), json_o[i].get('commit')
                                   .get('author').get('name')))
     except ValueError:
         pass
